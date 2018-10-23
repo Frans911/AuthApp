@@ -1,0 +1,50 @@
+<!--
+  Generated template for the HomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="bgdark" text-center>
+    <ion-title>Sign In</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="body" text-center>
+  <form [formGroup]="form">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>E-mail :</ion-label>
+        <ion-input formControlName="email" type="email" [(ngModel)]="email"></ion-input>
+      </ion-item>
+      <div *ngIf="form.controls.email.invalid && form.controls.email.dirty"> 
+        <h6 style="color: red">Please fill your email</h6>
+      </div>
+      <ion-item>
+        <ion-label floating>Password :</ion-label>
+        <ion-input formControlName="password" type="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="form.controls.password.invalid && form.controls.password.dirty" > 
+          <h6 style="color: red">Your password must be atleast 10 characters</h6>
+        </ion-item>
+    </ion-list> 
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button color="light" ion-button full (click)="SignIn()">Sign In</button>
+        </ion-col>
+        <ion-col>
+          <button color="light" ion-button full (click)="SignUp()">Sign Up</button>
+        </ion-col>
+      </ion-row> 
+      <ion-row>
+        <ion-col>
+          <button color="danger" ion-button block (click)="googleSignIn()">Sign In using google</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
